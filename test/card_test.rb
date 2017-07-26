@@ -15,8 +15,7 @@ class CardTest < Minitest::Test
     end
 
     def test_it_can_return_answer_for_question
-      skip
-      assert_equal "What is the capital of Alaska", card.question
+      assert_equal "What is the capital of Alaska?", card.question
       assert_equal "Juneau", card.answer
     end
 
