@@ -21,15 +21,25 @@ class CardTest < Minitest::Test
     end
 
     def test_user_can_enter_a_guess_and_know_if_it_is_correct
-      card = Card.new(question: "What is the capital of Alaska?", answer: "Juneau")
+      card  = Card.new(question: "What is the capital of Alaska?", answer: "Juneau")
       guess = Guess.new("Juneau", card)
-      # binding.pry
+      answer_1 = guess.card.class
 
-
-      # assert_equal  <Card:0x007ffdf1820a90 @answer="Juneau", @question="What is the capital of Alaska?">, guess.card
+      assert Card, answer_1
       assert_equal "Juneau", guess.response
       assert guess.correct?
       assert_equal "Correct!", guess.feedback
+    end
+
+    def test_user_can_enter_a_guess_and_know_if_it_is_wrong
+      card  = Card.new(question: "Which planet is closest to the sun?", answer: "Mercury")
+      guess = Guess.new("Saturn", card)
+      answer_1 = guess.card.class
+
+      assert Card, answer_1
+      assert_equal "Saturn", guess.response
+      refute guess.correct?
+      assert_equal "Incorrect", guess.feedback
     end
 
 end
