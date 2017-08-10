@@ -6,11 +6,11 @@ class Deck
   attr_accessor :cards
 
   def initialize(cards)
-    @cards  = []
+    @cards = cards
   end
 
-  def cards
-    @cards << @card
+  def count
+    @cards.count
   end
 
 end
